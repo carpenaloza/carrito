@@ -1,26 +1,27 @@
 class CategoriasController < ApplicationController
+
     before_action :asignar_categoria, only: [:mostrar, :editar, :actualizar, :eliminar]
-    #GET
+    # GET
     def listar
-        @categoria = Categoria.select(:id, :categoria).order(categoria: :asc)
+        @categorias = Categoria.select(:id, :categoria).order(categoria: :asc)
     end
 
-    #GET
+    # GET
     def mostrar
-        
-    end
 
-    #GET
+    end
+    
+    # GET
     def crear
         @categoria = Categoria.new
     end
 
-    #GET
+    # GET
     def editar
-        
+
     end
 
-    #POST
+    # POST
     def guardar
         @categoria = Categoria.new(params_categoria)
         if @categoria.save
@@ -28,24 +29,21 @@ class CategoriasController < ApplicationController
         else
             render :crear
         end
-        
     end
 
-    #PUT/PATCH
+    # PUT/PATCH
     def actualizar
         if @categoria.update(params_categoria)
             redirect_to categoria_path
         else
             render :editar
         end
-        
     end
 
-    #DELETE
+    # DELETE
     def eliminar
         @categoria.destroy
         redirect_to categorias_path
-        
     end
 
     private

@@ -1,0 +1,56 @@
+<h3>Catálogo de productos</h3>
+
+<div>
+<%= link_to nuevo_producto_path, class: "btn btn-primary" do %>
+    <i class="bi bi-plus-circle"> Agregar producto</i>
+<% end %>
+</div>
+
+<div id="contenido_productos">
+    <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @productos.each do |producto| %>
+                <tr>
+                    <td>
+                            
+                                    <% producto.imagenes.each_with_index do |imagen, index| %>
+                                        <% if index == 0 %>
+                                            
+                                                <%= image_tag imagen, class: 'img-thumbnail', width:50 %>
+                                            
+                                        <% else %>
+                                            
+                                                <%= image_tag imagen, class: 'img-thumbnail', width:50 %>
+                                            
+                                        <% end %>
+                                    <% end %>
+                        
+                
+                    </td>
+                    <td scope="row"><%= producto.nombre %></td>
+                    <td><%= producto.precio %></td>
+                    <td><%= producto.cantidad %></td>
+                    <td><%= producto.categoria.categoria %></td>
+                    <td>
+                        <%= link_to editar_producto_path(producto) do %>
+                        <i class="bi bi-pencil-fill"></i> Editar
+                        <% end %> 
+                        <%= link_to producto_path(producto), method: :delete, data: { confirm: '¿Quieres eliminar el producto?' } do %>                   
+                                <i class="bi bi-trash-fill"></i> Eliminar                    
+                        <% end %>
+                    </td>
+                </tr>
+            </tbody>
+    <% end %>
+    </table>
+</div>

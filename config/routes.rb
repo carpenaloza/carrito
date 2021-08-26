@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   put     'productos/:id', to: 'productos#actualizar'
   patch   'productos/:id', to: 'productos#actualizar'
   delete  'productos/:id', to: 'productos#eliminar'
-
 end
