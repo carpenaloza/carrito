@@ -1,0 +1,16 @@
+<h1>Categorias</h1>
+
+<%= link_to 'Crear categoría', nueva_categoria_path %>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+    </tr>
+
+    <% @categorias.each do |categoria| %>
+    <tr>
+        <td> <%= categoria.categoria %></td>
+    </tr>
+    <% end %>
+
+</table>
