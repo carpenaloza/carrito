@@ -1,0 +1,21 @@
+.contenedor_tarjetas{
+    align-content: center;
+    width: 100%;
+}
+
+.contenedor_tarjetas{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fondo_tarjetas{
+    background-color: rgb(162, 130, 238);
+}
+
+.card{
+    margin: 0 2% 2% 2%;
+}
+
+.col{
+    align-content: center;
+}

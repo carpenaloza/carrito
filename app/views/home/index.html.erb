@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carrito</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "layouts/navbar" %>
+
+    <%# <div class="container"> HOLA
+    
+    <%= yield %>
+    
+    <%# </div> %>
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/240670935_239917448035138_3794492431527088813_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=730e14&_nc_ohc=xUA-n3i6awUAX_nzQdf&_nc_ht=scontent-scl2-1.xx&oh=bf3967f0a10ee9b192ebe7ca522359de&oe=614F4F68" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  <div class="contenedor_tarjetas" style="width: 100%;">
+      <div class="row contenedor_tarjetas" >
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/239651055_10159593470029675_2841234930094998301_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=iVgtSgqS-3EAX97T13p&_nc_oc=AQk_ZRTROraQ_ykiXmDrG-tjOO-rf2eu7GWepFjdLaheiFuqYmrX0NDJD4gG0MbruoU&_nc_ht=scontent-scl2-1.xx&oh=2b93a6aa38d8236d0c5193ed1acca8d0&oe=614DFDE0" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Collar de candado y corazón</h5>
+                            <h4>DISPONIBLE</h4>
+                            <h6>$21.990</h6>
+                            <p class="card-text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary1">Descripción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/240779778_10159593469459675_5153551674972339446_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=0debeb&_nc_ohc=DUdk5qw7JjAAX-_cy6t&_nc_ht=scontent-scl2-1.xx&oh=891aee9c02b63fe653f307abfe6ca7c7&oe=614DD2A8" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Aros doble corazón </h5>
+                            <h4>DISPONIBLE</h4>
+                            <h6>$14.990</h6>
+                            <p class="card-text2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary2">Descripción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/240739390_10159593466359675_2049924820773129367_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=0debeb&_nc_ohc=x5zurpN_rkwAX8XCQhh&_nc_ht=scontent-scl2-1.xx&oh=865b755327ffb64c922bada6f2359f64&oe=614CBE6D" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Aros dispar alas Sakura</h5>
+                            <h4>DISPONIBLE</h4>
+                            <h6>$18.990</h6>
+                            <p class="card-text3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-primary3">Descripción</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/240844909_10159593465079675_9033309670684546338_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=0debeb&_nc_ohc=X49kpR3HxD8AX_DKSa0&_nc_ht=scontent-scl2-1.xx&oh=25d99dfbf2fdbd66d8314c492feb7ac2&oe=614FD847" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Aros argollas</h5>
+                            <h4>DISPONIBLE</h4>
+                            <h6>$19.990</h6>
+                            <p class="card-text5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary5">Descripción</a>
+                        </div>
+                    </div>
+                </div>
+      </div>
+  </div>
+
+
+
+      <div class="row contenedor_tarjetas fondo_tarjetas">
+                <div class="card mb-3" style="max-width: 45%;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/239551325_10159593465344675_4078808737720771121_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=0debeb&_nc_ohc=rF2YZc5zPigAX-_Iohy&tn=UQvRwMhC4_7Tiy_N&_nc_ht=scontent-scl2-1.xx&oh=8a050d9f5685ab6b6728bda891bb9d71&oe=614D4F15" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Anillo Van Gogh</h5>
+                        <h4>DISPONIBLE</h4>
+                        <h6>$22.990</h6>
+                        <p class="card-text4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary4">Descripción</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3" style="max-width: 40%;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://scontent-scl2-1.xx.fbcdn.net/v/t1.6435-9/239547282_10159593466129675_4336332527498609923_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=0debeb&_nc_ohc=Eis-EJJeJucAX9DGXsa&_nc_ht=scontent-scl2-1.xx&oh=fec0634a4eb7763cb9fa8b091a1725fc&oe=614BF2C0" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title"> Aros con piedras</h5>
+                        <h4>DISPONIBLE</h4>
+                        <h6>$19.990</h6>
+                        <p class="card-text6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary6">Descripción</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+      </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+  </body>
+</html>

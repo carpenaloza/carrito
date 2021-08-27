@@ -1,8 +1,18 @@
-<%= form_with(model: categoria) do |formulario| %>
-    <%= formulario.label :categoria %>
-    <%= formulario.text_field :categoria %>
-    <% if categoria.errors[:categoria].any? %>
-        <%= categoria.errors[:categoria].first %>
-    <% end %>
-    <%= formulario.submit 'Enviar' %>
-<% end %>
+
+<div class="row">
+    <div class="col-6 contenedor-formulario">
+
+        <%= form_with(model: categoria) do |formulario| %>
+            <div class="mb-3">
+                <%= formulario.label :categoria, 'Nombre', class: "form-label" %>
+                <%= formulario.text_field :categoria, autofocus: 'autofocus', class: "form-control" %>
+                <% if categoria.errors[:categoria].any? %>
+                    <%= categoria.errors[:categoria].first %>
+                <% end %>
+            </div>
+
+            <%= formulario.submit(class: 'btn btn-primary')  do %>
+            <% end %>
+        <% end %>
+    </div>
+</div>

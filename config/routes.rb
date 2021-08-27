@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # index
+  get 'home',             to: 'home#index',  as: 'index'
+
   # categorias
   get 'categorias',             to: 'categorias#listar',  as: 'categorias'
   get 'categorias/crear',       to: 'categorias#crear',   as: 'nueva_categoria'
@@ -20,4 +23,9 @@ Rails.application.routes.draw do
   put     'productos/:id', to: 'productos#actualizar'
   patch   'productos/:id', to: 'productos#actualizar'
   delete  'productos/:id', to: 'productos#eliminar'
+
+  root    to: 'sesiones#login',   as: 'login'
+  post    'sesiones', to: 'sesiones#iniciar'
+  delete  'sesiones', to: 'sesiones#cerrar'
+
 end

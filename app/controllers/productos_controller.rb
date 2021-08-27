@@ -4,6 +4,7 @@ class ProductosController < ApplicationController
     def listar
         @productos = Producto.includes(:categoria).select(:id, :nombre, :precio, :cantidad, :categoria_id).order(nombre: :asc)
     end
+    
 
     # GET
     def mostrar
@@ -31,6 +32,7 @@ class ProductosController < ApplicationController
             render :crear
         end
     end
+    
 
     # PUT/PATCH
     def actualizar

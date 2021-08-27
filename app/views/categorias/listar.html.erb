@@ -1,30 +1,35 @@
-<h1>Categorias</h1>
+<h3>Categorías</h3>
 
-<%= link_to 'Crear categoria', nueva_categoria_path %>
-
-<div class="row">
-    <div class="col">
-    <h3>Nombre</h3>
-    </div>
-    <div class="col">
-    <h3>Acciones</h3>
-    </div>
+<div>
+<%= link_to nueva_categoria_path, class: "btn btn-primary" do %>
+    <i class="bi bi-plus-circle"> Agregar categoría</i>
+<% end %>
 </div>
 
-<table>
-    
-    <% @categorias.each do |categoria| %>
-    <div class="row">
-        <div class="col"><%= categoria.categoria %>
-        </div>
-
-        <div class="col">
-                <%= link_to editar_categoria_path(categoria) do %>
-                    <i class="bi bi-pencil-fill"></i> Editar
-                <% end %>
-                <%= link_to categoria_path(categoria), method: :delete, data: { confirm: '¿Quieres eliminar la categoria?' } do %>                   
+<div id="contenido_productos">
+    <table class="table align-middle">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categorias.each do |categoria| %>
+                <tr>
+                    <td scope="row"><%= categoria.categoria %></td>
+                    <td>
+                        <%= link_to editar_categoria_path(categoria) do %>
+                        <i class="bi bi-pencil-fill"></i> Editar
+                        <% end %> <br>
+                        <%= link_to categoria_path(categoria), method: :delete, data: { confirm: '¿Quieres eliminar la categoria?' } do %>                   
                         <i class="bi bi-trash-fill"></i> Eliminar                    
-                <% end %>
-        </div>
-    </div>
-<% end %>
+                        <% end %>
+                    </td>          
+                </tr>
+            </tbody>
+    <% end %>
+    </table>
+
+    
+</div>
