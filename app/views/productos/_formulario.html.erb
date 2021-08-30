@@ -44,23 +44,41 @@
 
             <div class="mb-3">
                 <%= f.label :categoria_id, class: 'form-label' %>
-                <%= f.select(:categoria_id,
-                    options_from_collection_for_select(categorias, :id, :categoria),
-                    {include_blank: 'Elige una categoria'},
-                    {class: 'form-select'}) %>
+                <% if producto.categoria %>
+                    <%= f.select(:categoria_id,
+                        options_from_collection_for_select(categorias, :id, :categoria, producto.categoria_id),
+                        {include_blank: 'Elige una categoria'},
+                        {class: 'form-select'}) %>
+                <% else %>
+                    <%= f.select(:categoria_id,
+                        options_from_collection_for_select(categorias, :id, :categoria),
+                        {include_blank: 'Elige una categoria'},
+                        {class: 'form-select'}) %>
+                <% end %>
+                
                 <% if producto.errors[:categoria_id].any? %>
                     <div style="color: red;">
-                        <%= producto.errors[:categoria_id].first.full_message %>
+                        <%= producto.errors[:categoria_id].first %>
                     </div>
                 <% end %>
             </div>
             
+            <% if producto.imagenes.attached? %>
+                <%= render 'lista_fotos', producto: producto %>
+            <% end %>
+
             <div class="mb-3">
                 <%= f.label :imagenes, class: 'form-label' %>
-                <%= f.file_field :imagenes, multiple: true, class: 'form-control' %>
-            </div>
+                <%= f.file_field :imagenes, multiple: true, class: 'form-control', accept: '.jpg, .png, .jpeg' %>
+                <% if producto.errors[:imagenes].any? %>
+                    <div style="color: red;">
+                        <%= producto.errors[:imagenes].first %>
+                    </div>
+                <% end %>
+        </div>
             
-            <%= f.submit class: 'btn btn-primary' do %>
+            <%= f.submit class: 'btn btn-primary' do %> 
+            
             <% end %>
             
         <% end %>

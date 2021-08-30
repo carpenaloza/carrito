@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   # index
-  get 'home',             to: 'home#index',  as: 'index'
+  # get 'home',             to: 'home#index',  as: 'index'
+
+  #Paginas
+  root 'paginas#inicio'
+
+  # Carros
+  post 'carros/:id_producto', to: 'carros#agregar_producto', as: 'agregar_producto'
 
   # categorias
   get 'categorias',             to: 'categorias#listar',  as: 'categorias'
@@ -24,8 +30,10 @@ Rails.application.routes.draw do
   patch   'productos/:id', to: 'productos#actualizar'
   delete  'productos/:id', to: 'productos#eliminar'
 
-  root    to: 'sesiones#login',   as: 'login'
-  post    'sesiones', to: 'sesiones#iniciar'
-  delete  'sesiones', to: 'sesiones#cerrar'
+  delete  'productos/:id/imagenes/:id_imagen',  to: 'productos#eliminar_foto',  as: 'eliminar_foto'
+
+  # root    to: 'sesiones#login',   as: 'login'
+  # post    'sesiones', to: 'sesiones#iniciar'
+  # delete  'sesiones', to: 'sesiones#cerrar'
 
 end

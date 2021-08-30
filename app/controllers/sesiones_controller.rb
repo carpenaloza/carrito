@@ -3,7 +3,7 @@ class SesionesController < ApplicationController
     # GET
     def login
         if session[:admin_id]
-            redirect_to productos_path
+            redirect_to index_path
         end
     end
 
