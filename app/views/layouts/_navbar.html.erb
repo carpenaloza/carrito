@@ -9,16 +9,22 @@
       <ul class="navbar-nav">
         <li class="nav-item">
             <%# <a class="nav-link active" aria-current="page" href="#"> <i class="bi bi-house"></i> Home</a> %>
-          <a class="nav-link" href="#"> <i class="bi bi-house"></i> Home</a>
+          <%= link_to index_path, class: "nav-link" do %>
+          <i class="bi bi-house"></i> Home </a>
+          <% end %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"> <i class="bi bi-speedometer2"></i> Dashboard </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> <i class="bi bi-bag"></i> Productos </a>
+          <%= link_to productos_path, class: "nav-link" do %>
+          <i class="bi bi-bag"></i> Productos </a>
+          <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-grid-3x3-gap"></i> Categorías </a>
+          <%= link_to categorias_path, class: "nav-link" do %>
+          <i class="bi bi-grid-3x3-gap"></i> Categorías </a>
+          <% end %>
         </li>
       </ul>
     </div>

@@ -1,0 +1,38 @@
+    <h1>Iniciar sesión</h1>
+
+
+    <% if flash[:error_sesion] %>
+        <div class="alert alert-danger" role="alert">
+            <%= flash[:error_sesion] %>
+        </div>
+    <% end %>
+    <%= form_with(url: 'sesiones') do |formulario|%>
+
+  <form class="px-4 py-3">
+    
+
+        <div class="mb-3">
+            <%= formulario.label :nombre_usuario, class: 'form-label' %>
+            <%= formulario.text_field :nombre_usuario, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+            <%= formulario.label :password, class: 'form-label' %>
+            <%= formulario.password_field :password, class: 'form-control' %>
+        </div>
+
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Recordarme
+        </label>
+      </div>
+    </div>
+
+    <%= formulario.submit 'Iniciar sesión', class: 'btn btn-primary' %>
+    <% end %>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="#">Deseas registrarte? Crea tu cuenta</a>
+  <a class="dropdown-item" href="#">Olvidaste tu contraseña?</a>

@@ -22,18 +22,13 @@
                 <% @productos.each do |producto| %>
                 <tr>
                     <td>
-                            
-                                    <% producto.imagenes.each_with_index do |imagen, index| %>
-                                        <% if index == 0 %>
-                                            
-                                                <%= image_tag imagen, class: 'img-thumbnail', width:50 %>
-                                            
-                                        <% else %>
-                                            
-                                                <%= image_tag imagen, class: 'img-thumbnail', width:50 %>
-                                            
-                                        <% end %>
-                                    <% end %>
+                        <% if producto.imagenes.attached? %>
+                            <%= link_to producto_path(producto) do %>
+                            <%= image_tag producto.imagenes.first, class: 'img-thumbnail', width:100 %>
+                        <% end %>
+                        <% else %>
+                            No hay fotos registradas
+                        <% end %>
                         
                 
                     </td>
