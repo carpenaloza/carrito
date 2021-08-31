@@ -1,0 +1,2 @@
+class DatosEnvio < ApplicationRecord
+end

@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <h5 class="card-title"> <%= producto.nombre %> </h5>
                             <p class="card-text1"><%= producto.descripcion %></p>
-                            <h3><%= producto.precio.to_s[0..-3] %></h3>
+                            <h3><%= producto.precio.to_s[0..-3] %> CLP </h3>
                             
                             <%= link_to 'Agregar al carro', agregar_producto_path(producto), class: 'btn btn-primary', method: :post %>
                         </div>

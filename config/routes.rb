@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   #Paginas
   root 'paginas#inicio'
+  get '/carrito', to: 'paginas#carro', as: 'carrito'
 
-  # Carros
-  post 'carros/:id_producto', to: 'carros#agregar_producto', as: 'agregar_producto'
+  #carros
+  post   'carros/:id_producto',          to: 'carros#agregar_producto',            as: 'agregar_producto'
+  put 'carros/:id_producto/cantidad',   to: 'carros#aumentar_cantidad_producto',  as: 'aumentar_producto'
+  delete 'carros/:id_producto',          to: 'carros#eliminar_producto',           as: 'eliminar_producto'
+  delete 'carros/:id_producto/cantidad', to: 'carros#disminuir_cantidad_producto', as: 'disminuir_producto'
+
 
   # categorias
   get 'categorias',             to: 'categorias#listar',  as: 'categorias'

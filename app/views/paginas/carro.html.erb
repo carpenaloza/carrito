@@ -1,0 +1,73 @@
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Carrito</li>
+        <li class="list-group-item">
+            <% @carro.carros_contenidos.each do |contenido_carrito| %>
+                <div class="row justify-content-center">
+
+                <tr>
+                    <td>
+                    <div class="col-3">
+                        <td>
+                        <%= image_tag contenido_carrito.producto.imagenes.first, class: 'w-50' %>
+                        </td>
+                    </div>
+                    
+                    <div class="col-3">
+                        <div class="row">
+                        <div class="col">
+                        <%= contenido_carrito.producto.nombre %>
+                        </div>
+                        <div class="col">
+                        <%= contenido_carrito.producto.descripcion %>
+                        </div>
+                        <div class="col">
+                        Categoría: <%= contenido_carrito.producto.categoria.categoria %>
+                        </div>
+
+                        <div class="col">
+                        <p>Cantidad:</p>
+                            <div class="row">
+                                <div class="col">
+                                <%= link_to '-', disminuir_producto_path(contenido_carrito.producto), 
+                                method: :delete,
+                                class: 'btn btn-secondary' %>
+                                </div>
+                                <div class="col">
+                                    <%= contenido_carrito.cantidad%> 
+                                </div>
+                                <div class="col">
+                                <%= link_to '+', aumentar_producto_path(contenido_carrito.producto), 
+                                method: :put,
+                                class: 'btn btn-secondary' %>
+                                </div>
+                            </div><br>
+                            </div>
+                        </div>
+                         
+                        <div class="col">
+                        <%= link_to eliminar_producto_path(contenido_carrito.producto), method: :delete, class: 'btn btn-primary' do %>
+                        Eliminar
+                        <% end %>
+                        </div>
+                        <br><br>
+                    </div>
+
+                    <div class="col-3 text-end">
+                        <%= contenido_carrito.producto.precio.to_s[0..-3] %> CLP
+                    </div><hr>
+                </div>
+            <% end %>
+            
+        </li>
+        </tr>
+        <li class="list-group-item text-end">
+            <strong>
+                Subtotal: <%= @carro.total %> 
+            </strong>
+        </li>
+    </ul>
+</div>
+
+
+    
