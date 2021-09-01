@@ -1,0 +1,121 @@
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Carrito</li>
+        <li class="list-group-item">
+            <% @carro.carros_contenidos.each do |contenido_carrito| %>
+                <div class="row">
+                        <table>
+                            <tr>
+                                <th><%= image_tag contenido_carrito.producto.imagenes.first, class: 'img-thumbnail', width:100 %></th>
+                                <th><h5><%= contenido_carrito.producto.nombre %></h5></th>
+                                <th><%= contenido_carrito.producto.descripcion %></th>
+                                <th><strong><%= contenido_carrito.producto.precio.to_s[0..-3] %> CLP</strong></th>
+                                <th>
+                                    <%= link_to eliminar_producto_path(contenido_carrito.producto), method: :delete, class: 'btn btn-primary' do %>
+                                    Eliminar
+                                    <% end %>
+                                </th>
+                                <th>
+                                    <table>
+                                        <tr>
+                                        <th>Cantidad:</th>
+                                        <th>
+                                        <%= link_to disminuir_producto_path(contenido_carrito.producto), 
+                                        method: :delete, class: "nav-link" do %>
+                                        <i class="bi bi-dash-circle-fill"></i>
+                                        <% end %></th>
+
+                                        <th><%= contenido_carrito.cantidad%> </th>
+
+                                        <th><%= link_to aumentar_producto_path(contenido_carrito.producto), 
+                                        method: :put, class: "nav-link" do %>
+                                        <i class="bi bi-plus-circle-fill"></i>
+                                        <% end %></th>
+                                        </tr>
+                                    </table>
+                                </th>
+                            </tr><hr>
+                </div>
+                
+        </li><% end %>
+        <li class="list-group-item text-end">
+            <strong>
+                Subtotal: <%= @carro.total %> 
+            </strong>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Carrito</li>
+        <li class="list-group-item">
+            <% @carro.carros_contenidos.each do |contenido_carrito| %>
+            
+                <div class="row">
+                    <div class="col-3">
+                        <td>
+                        <%= image_tag contenido_carrito.producto.imagenes.first, class: 'rounded', width:150  %>
+                        </td>
+                    </div>
+                    
+                    <div class="col-6">
+                        <div class="row">
+                        <div class="col">
+                        <%= contenido_carrito.producto.nombre %>
+                        </div>
+                        <div class="col">
+                        <%= contenido_carrito.producto.descripcion %>
+                        </div>
+                        <div class="col-1">
+                                    <table><br><br>
+                                        <tr>
+                                        <th>Cantidad:</th>
+                                        <th>
+                                        <%= link_to disminuir_producto_path(contenido_carrito.producto), 
+                                        method: :delete, class: "nav-link" do %>
+                                        <i class="bi bi-dash-circle-fill"></i>
+                                        <% end %></th>
+
+                                        <th><%= contenido_carrito.cantidad%> </th>
+
+                                        <th><%= link_to aumentar_producto_path(contenido_carrito.producto), 
+                                        method: :put, class: "nav-link" do %>
+                                        <i class="bi bi-plus-circle-fill"></i>
+                                        <% end %></th>
+                                        </tr>
+                                        <tr>
+                                        <th class="text-end">
+                                        <%= link_to eliminar_producto_path(contenido_carrito.producto), method: :delete, class: 'btn btn-primary' do %>
+                                        Eliminar
+                                        <% end %></th>
+                                        </tr>
+                                    </table>       
+                            </div>
+                        </div>
+                         
+                    </div>
+
+                    <div class="col-3">
+                        <strong><%= contenido_carrito.producto.precio.to_s[0..-3] %> CLP</strong>
+                        <br>
+                    </div><hr>
+            <% end %>
+        </li>
+        </tr>
+        <li class="list-group-item text-end">
+            <strong>
+                Subtotal: <%= @carro.total %> 
+            </strong>
+        </li></div>
+    </ul>
+</div>
