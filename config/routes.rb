@@ -50,9 +50,14 @@ Rails.application.routes.draw do
 
   #Pedidos
   get 'pedidos/crear',  to: 'pedidos#crear',  as: 'nuevo_pedido'
-  get 'pedidos',        to: 'pedidos#pagar',    as: 'pagar'
+  get 'pagar',        to: 'pedidos#pagar',    as: 'pagar'
 
   post 'pedidos',       to: 'pedidos#guardar', as: 'crear_pedido_cliente'
+
+  #Paginas_admin
+  get 'paginas_admin',              to: 'paginas_admin#listar',   as: 'pedidos'
+  get 'paginas_admin/:id',          to: 'paginas_admin#mostrar',  as: 'pedido'
+
 
   # root    to: 'sesiones#login',   as: 'login'
   # post    'sesiones', to: 'sesiones#iniciar'

@@ -1,9 +1,11 @@
 class PedidosController < ApplicationController
     include PedidosHelper
+    layout 'paginas', only: [:crear, :pagar]
 
-    layout 'paginas'
-    
+
+
     before_action :validar_carro
+    before_action :validar_productos_carrito, only: :crear
 
     # GET
     def crear
@@ -74,6 +76,12 @@ class PedidosController < ApplicationController
 
     def consultar_destinos
         @destinos = Destino.select(:id, :nombre).order(nombre: :asc)
+    end
+
+    def validar_productos_carrito
+        if @carro.productos.count == 0
+            redirect_to root_path
+        end
     end
 
 end
