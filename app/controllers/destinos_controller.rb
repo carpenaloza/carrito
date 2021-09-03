@@ -1,9 +1,9 @@
 class DestinosController < ApplicationController
-
     before_action :asignar_destino, only: [:mostrar, :editar, :actualizar, :eliminar]
     # GET
     def listar
-        @destinos = Destino.select(:id, :nombre)
+        @destinos = Destino.includes(:region).select(:id, :nombre, :region_id)
+    end
 
     # GET
     def mostrar        
@@ -54,11 +54,10 @@ class DestinosController < ApplicationController
     end
 
     def params_destino
-        params.require(:destino).permit(:destino)
+        params.require(:destino).permit(:nombre, :region_id)
     end
-    
+
     def consultar_regiones
         @regiones = Region.select(:id, :nombre).order(id: :asc)
     end
-
 end

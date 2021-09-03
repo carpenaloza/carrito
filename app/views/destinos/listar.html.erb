@@ -1,0 +1,35 @@
+<h3>Destinos</h3>
+
+<div>
+<%= link_to nuevo_destino_path, class: "btn btn-primary" do %>
+    <i class="bi bi-plus-circle"> Agregar destino</i>
+<% end %>
+</div>
+
+<div id="contenido_destinos">
+    <table class="table align-middle">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @destinos.each do |destino| %>
+                <tr>
+                    <td scope="row"><%= destino.nombre %></td>
+                    <td>
+                        <%= link_to editar_destino_path(destino) do %>
+                        <i class="bi bi-pencil-fill"></i> Editar
+                        <% end %> <br>
+                        <%= link_to destino_path(destino), method: :delete, data: { confirm: '¿Quieres eliminar el destino?' } do %>                   
+                        <i class="bi bi-trash-fill"></i> Eliminar                    
+                        <% end %>
+                    </td>          
+                </tr>
+            </tbody>
+    <% end %>
+    </table>
+
+    
+</div>

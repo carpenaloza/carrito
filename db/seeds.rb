@@ -5,31 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-TiposPago.create([
-    {pago: 'efectivo'},
-    {pago: 'tarjeta'},
-])
 
-EstadosPedido.create([
-    {estado: 'solicitado'},
-    {estado: 'enviado'},
-    {estado: 'entregado'},
-])
+# TiposPago.create([
+#     {pago: 'efectivo'},
+#     {pago: 'tarjeta'},
+# ])
+
+# EstadosPedido.create([
+#     {estado: 'solicitado'},
+#     {estado: 'enviado'},
+#     {estado: 'entregado'},
+# ])
+# Region.destroy_all
 
 Region.create([
-    { nombre: 'Primera Región'},
-    { nombre: 'Segunda Región'},
-    { nombre: 'Tercera Región'},
-    { nombre: 'Cuarta Región'},
-    { nombre: 'Quinta Región'},
-    { nombre: 'Sexta Región'},
-    { nombre: 'Septima Región'},
-    { nombre: 'Octava Región'},
-    { nombre: 'Novena Región'},
-    { nombre: 'Décima Región'},
-    { nombre: 'Décima Primera Región'},
-    { nombre: 'Décima Cuarta Región'},
-    { nombre: 'Décima Quinta Región'},
-    { nombre: 'Décima Sexta Región'},
-    { nombre: 'Región Metropolitana'},
+    { nombre: 'Primera Región Tarapacá'},
+    { nombre: 'Segunda Región Antofagasta'},
+    { nombre: 'Tercera Región Atacama'},
+    { nombre: 'Cuarta Región Coquimbo'},
+    { nombre: 'Quinta Región Valparaíso'},
+    { nombre: 'Sexta Región Ohiggins'},
+    { nombre: 'Septima Región El Maule'},
+    { nombre: 'Octava Región El Bío Bío'},
+    { nombre: 'Novena Región La Araucanía'},
+    { nombre: 'Décima Región Los Lagos'},
+    { nombre: 'Décima Primera Región Aysén'},
+    { nombre: 'Décima Segunda Región Magallanes y Antártica Chilena'},
+    { nombre: 'Décima Tercera Región Metropolitana de Santiago'},
+    { nombre: 'Décima Cuarta Región Los Ríos'},
+    { nombre: 'Décima Quinta Región Arica y Parinacota'},
+    { nombre: 'Décima Sexta Región Ñuble'},
 ])

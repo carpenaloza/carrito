@@ -1,67 +1,77 @@
-<div class="card">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Carrito</li>
-        <li class="list-group-item">
-            <% @carro.carros_contenidos.each do |contenido_carrito| %>
-            
-                <div class="row">
-                    <div class="col-3">
-                        <td>
-                        <%= image_tag contenido_carrito.producto.imagenes.first, class: 'rounded', width:185  %>
-                        </td>
+<div class="row">
+    <div class="col-10">
+
+
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Carrito</li>
+                <li class="list-group-item">
+                    <% @carro.carros_contenidos.each do |contenido_carrito| %>
+                    
+                        <div class="row">
+                            <div class="col-3">
+                                <td>
+                                <%= image_tag contenido_carrito.producto.imagenes.first, class: 'rounded', width:185  %>
+                                </td>
+                            </div>
+                            
+                            <div class="col-3">
+                                <div class="row">
+                                <div class="col">
+                                <%= contenido_carrito.producto.nombre %>
+                                </div>
+                                <div class="col">
+                                <%= contenido_carrito.producto.descripcion %>
+                                </div>
+
+                                <div class="col"><br>
+                                            <table>
+                                                <tr>
+                                                <th>Cantidad:</th>
+                                                <th>
+                                                <%= link_to disminuir_producto_path(contenido_carrito.producto), 
+                                                method: :delete, class: "nav-link", remote: true do %>
+                                                <i class="bi bi-dash-circle-fill"></i>
+                                                <% end %></th>
+
+                                                <th><%= contenido_carrito.cantidad%> </th>
+
+                                                <th><%= link_to aumentar_producto_path(contenido_carrito.producto), 
+                                                method: :put, class: "nav-link", remote: true do %>
+                                                <i class="bi bi-plus-circle-fill"></i>
+                                                <% end %></th>
+                                                </tr>
+                                            </table>       
+                                    </div>
+                                </div>
+                                
+                                <div class="col">
+                                <%= link_to eliminar_producto_path(contenido_carrito.producto), method: :delete, class: 'btn btn-primary', remote: true do %>
+                                Eliminar
+                                <% end %><br><br><br><br>
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <strong><%= contenido_carrito.producto.precio.to_s[0..-3] %> CLP</strong>
+                                <br>
+                            </div><hr>
+                    <% end %>
+                </li>
+                </tr>
+                <li class="list-group-item text-end">
+                    <div>
+                        <strong> Subtotal: <%= @carro.total %> </strong>
+                    </div>
+                        <br>
+                    <div>
+                        <%= link_to "Continuar con el pedido", nuevo_pedido_path, class: 'btn btn-warning' %>
                     </div>
                     
-                    <div class="col-3">
-                        <div class="row">
-                        <div class="col">
-                        <%= contenido_carrito.producto.nombre %>
-                        </div>
-                        <div class="col">
-                        <%= contenido_carrito.producto.descripcion %>
-                        </div>
+                </li></div>
+            </ul>
+        </div>
 
-                        <div class="col"><br>
-                                    <table>
-                                        <tr>
-                                        <th>Cantidad:</th>
-                                        <th>
-                                        <%= link_to disminuir_producto_path(contenido_carrito.producto), 
-                                        method: :delete, class: "nav-link", remote: true do %>
-                                        <i class="bi bi-dash-circle-fill"></i>
-                                        <% end %></th>
-
-                                        <th><%= contenido_carrito.cantidad%> </th>
-
-                                        <th><%= link_to aumentar_producto_path(contenido_carrito.producto), 
-                                        method: :put, class: "nav-link", remote: true do %>
-                                        <i class="bi bi-plus-circle-fill"></i>
-                                        <% end %></th>
-                                        </tr>
-                                    </table>       
-                            </div>
-                        </div>
-                         
-                        <div class="col">
-                        <%= link_to eliminar_producto_path(contenido_carrito.producto), method: :delete, class: 'btn btn-primary', remote: true do %>
-                        Eliminar
-                        <% end %><br><br><br><br>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <strong><%= contenido_carrito.producto.precio.to_s[0..-3] %> CLP</strong>
-                        <br>
-                    </div><hr>
-            <% end %>
-        </li>
-        </tr>
-        <li class="list-group-item text-end">
-            <strong>
-                Subtotal: <%= @carro.total %> 
-            </strong>
-        </li></div>
-    </ul>
+    </div>
 </div>
-
-
     

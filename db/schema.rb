@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_185604) do
+ActiveRecord::Schema.define(version: 2021_09_01_182014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_185604) do
   create_table "datos_envios", force: :cascade do |t|
     t.string "nombre"
     t.string "direccion"
-    t.string "coreeo"
+    t.string "correo"
     t.string "telefono"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 2021_08_31_185604) do
     t.integer "total"
     t.bigint "destino_id", null: false
     t.bigint "datos_envio_id", null: false
-    t.bigint "estados_pedidos_id", null: false
+    t.bigint "estados_pedido_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["datos_envio_id"], name: "index_pedidos_on_datos_envio_id"
     t.index ["destino_id"], name: "index_pedidos_on_destino_id"
-    t.index ["estados_pedidos_id"], name: "index_pedidos_on_estados_pedidos_id"
+    t.index ["estados_pedido_id"], name: "index_pedidos_on_estados_pedido_id"
   end
 
   create_table "productos", force: :cascade do |t|
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_185604) do
   add_foreign_key "detalles_pedidos", "productos"
   add_foreign_key "pedidos", "datos_envios"
   add_foreign_key "pedidos", "destinos"
-  add_foreign_key "pedidos", "estados_pedidos", column: "estados_pedidos_id"
+  add_foreign_key "pedidos", "estados_pedidos"
   add_foreign_key "productos", "categorias"
   add_foreign_key "ventas", "pedidos"
   add_foreign_key "ventas", "tipos_pagos"
