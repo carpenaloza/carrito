@@ -1,8 +1,9 @@
 <nav class="navbar navbar_cliente navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid fondo_navbar">
     
-    <a class="navbar-brand"> <i class="bi bi-shop"></i> Carrito</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand"> 
+      <i class="bi bi-shop"></i> Carrito</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNav">
@@ -14,7 +15,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to productos_path, class: "nav-link" do %>
+          <%= link_to root_path, class: "nav-link" do %>
           <i class="bi bi-list-nested"></i> Catálogo </a>
           <% end %>
         </li>

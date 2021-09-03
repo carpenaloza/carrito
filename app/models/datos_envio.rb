@@ -1,4 +1,6 @@
 class DatosEnvio < ApplicationRecord
+    # attr_accessor :destino_id
+
     has_many :pedidos
     
     validates(:nombre, presence: true)
