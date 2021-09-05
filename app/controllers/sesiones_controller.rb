@@ -3,7 +3,7 @@ class SesionesController < ApplicationController
     # GET
     def login
         if session[:admin_id]
-            redirect_to index_path
+            redirect_to categorias_path
         end
     end
 
@@ -14,7 +14,7 @@ class SesionesController < ApplicationController
         
         if admin and admin.authenticate(params[:password])
             session[:admin_id] = admin.id
-            redirect_to index_path
+            redirect_to categorias_path
         else
             flash[:error_sesion] = "Nombre usuario o contraseña equivocados"
             render :login

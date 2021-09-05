@@ -1,4 +1,5 @@
 class DestinosController < ApplicationController
+    before_action :validar_sesion
     before_action :asignar_destino, only: [:mostrar, :editar, :actualizar, :eliminar]
     # GET
     def listar

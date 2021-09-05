@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
   # index
   # get 'home',             to: 'home#index',  as: 'index'
+  
+  
+
 
   #Paginas
   root 'paginas#inicio'
+
+  get     'sesiones', to:'sesiones#login', as: 'login'
+  post    'sesiones', to: 'sesiones#iniciar'
+  delete  'sesiones', to: 'sesiones#cerrar'
+
+
   get '/carrito', to: 'paginas#carro', as: 'carrito'
   get 'enviar', to: 'paginas#enviar_saludo'
+  
   #carros
   post   'carros/:id_producto',          to: 'carros#agregar_producto',            as: 'agregar_producto'
   put 'carros/:id_producto/cantidad',   to: 'carros#aumentar_cantidad_producto',  as: 'aumentar_producto'
@@ -59,8 +69,6 @@ Rails.application.routes.draw do
   get 'paginas_admin/:id',          to: 'paginas_admin#mostrar',  as: 'pedido'
 
 
-  # root    to: 'sesiones#login',   as: 'login'
-  # post    'sesiones', to: 'sesiones#iniciar'
-  # delete  'sesiones', to: 'sesiones#cerrar'
+
 
 end
