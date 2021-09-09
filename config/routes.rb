@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   #Paginas
   root 'paginas#inicio'
 
-  get     'sesiones', to:'sesiones#login', as: 'login'
-  post    'sesiones', to: 'sesiones#iniciar'
-  delete  'sesiones', to: 'sesiones#cerrar'
+  # get     'sesiones', to:'sesiones#login', as: 'login'
+  # post    'sesiones', to: 'sesiones#iniciar'
+  # delete  'sesiones', to: 'sesiones#cerrar'
 
 
   get '/carrito', to: 'paginas#carro', as: 'carrito'

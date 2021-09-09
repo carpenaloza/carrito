@@ -1,6 +1,6 @@
 class CategoriasController < ApplicationController
 
-    before_action :validar_sesion
+    # before_action :validar_sesion
     before_action :asignar_categoria, only: [:mostrar, :editar, :actualizar, :eliminar]
     # GET
     def listar
