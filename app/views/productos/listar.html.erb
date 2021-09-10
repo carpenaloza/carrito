@@ -1,4 +1,4 @@
-<h3>Lista de productos</h3>
+<h3>Productos Registrados</h3>
 
 <div>
 <%= link_to nuevo_producto_path, class: "btn btn-primary" do %>
@@ -6,45 +6,9 @@
 <% end %>
 </div>
 
-<div id="contenido_productos">
-    <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Categoría</th>
-                <th scope="col">Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @productos.each do |producto| %>
-                <tr>
-                    <td>
-                        <% if producto.imagenes.attached? %>
-                            <%= link_to producto_path(producto) do %>
-                            <%= image_tag producto.imagenes.first, class: 'img-thumbnail', width:100 %>
-                        <% end %>
-                        <% else %>
-                            No hay fotos registradas
-                        <% end %>
-                    </td>
-                    <td scope="row"><%= producto.nombre %></td>
-                    <td><%= producto.precio %></td>
-                    <td><%= producto.cantidad %></td>
-                    <td><%= producto.categoria.categoria %></td>
-                    <td>
-                        <%= link_to editar_producto_path(producto) do %>
-                        <i class="bi bi-pencil-fill"></i> Editar
-                        <% end %> 
-                        <%= link_to producto_path(producto), method: :delete, data: { confirm: '¿Quieres eliminar el producto?' } do %>                   
-                                <i class="bi bi-trash-fill"></i> Eliminar                    
-                        <% end %>
-                    </td>
-                </tr>
-            </tbody>
-    <% end %>
-    </table>
-</div>
+<h2>Activos</h2>
+<%= render 'tabla_productos', productos: @productos_activos %>
 
+
+<h2>Inactivos</h2>
+<%= render 'tabla_productos', productos: @productos_inactivos %>

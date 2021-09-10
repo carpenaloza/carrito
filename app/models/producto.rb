@@ -1,8 +1,8 @@
 class Producto < ApplicationRecord
-  # TODO para clientes 
-  # TODO agregar 
+
   belongs_to :categoria
   belongs_to :estados_producto
+  
   has_many_attached :imagenes
 
   has_many :carros_contenidos

@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   post    'productos',     to: 'productos#guardar'
   put     'productos/:id', to: 'productos#actualizar'
   patch   'productos/:id', to: 'productos#actualizar'
-  delete  'productos/:id', to: 'productos#eliminar'
+  # delete  'productos/:id', to: 'productos#eliminar'
 
   delete  'productos/:id/imagenes/:id_imagen',  to: 'productos#eliminar_foto',  as: 'eliminar_foto'
 

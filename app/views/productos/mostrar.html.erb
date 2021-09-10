@@ -14,6 +14,14 @@
 
             <div class="card-body">
                 <p> Fotos: <%= @producto.imagenes.count %>/4 </p>
+                <p>
+                <% if @producto.estados_producto.estado.eql? 'activo' %>
+                    <span class="badge rounded-pill bg-warning text-dark">Activo</span>
+                <%else %>
+                    <span class="badge rounded-pill bg-secondary">Inactivo</span>
+                <%end %>
+                </p>
+
                 <h5 class="card-title"> <%= @producto.nombre %> </h5>
                 <p class="card-text">
                     <%= @producto.descripcion %>
@@ -22,14 +30,15 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><%= @producto.precio %> CLP</li>
                 <li class="list-group-item"><%= @producto.cantidad %> diponibles</li>
+                
             </ul>
 
             <div class="card-body">
                 <%= link_to 'Editar', editar_producto_path(@producto), class: 'card-link' %>
-                <%= link_to 'Eliminar', producto_path(@producto),
+                <%# <%= link_to 'Eliminar', producto_path(@producto),
                     class: 'card-link',
                     method: :delete, 
-                    data: {confirm: '¿Está seguro?'} %>
+                    data: {confirm: '¿Está seguro?'} %> 
             </div>
         </div>
 
