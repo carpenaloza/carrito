@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item">
           <%= link_to carrito_path, class: "nav-link" do %>
-          <i class="bi bi-cart"></i> Carrito <span class="badge bg-secondary"> <%= @carro.productos.count %> </span> </a>
+          <i class="bi bi-cart"></i> Carrito <span class="badge bg-secondary"> <%= @carro.carros_contenidos.map{ |p| p.cantidad }.sum %> </span> </a>
           <% end %>
         </li>
       </ul>
