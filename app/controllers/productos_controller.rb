@@ -48,6 +48,12 @@ class ProductosController < ApplicationController
 
     # PUT/PATCH
     def actualizar
+        if params_producto[:estados_producto_id] == 0
+            @producto.estados_producto = EstadosProducto.find.by(estado: 'inactivo')
+        else
+            @producto.estados_producto = EstadosProducto.find.by(estado: 'activo')
+        end
+
         if @producto.update(params_producto)
             redirect_to producto_path(@producto)
         else
@@ -58,9 +64,12 @@ class ProductosController < ApplicationController
 
     #DELETE
     def eliminar
-        # todo: Configurar con Active Job
+        # TODO: Configurar con Active Job
+        # TODO: Cambiar estado del producto no eliminarlo
         # @producto.imagenes.purge_later
-        @producto.destroy
+        @producto.estados_producto = EstadosProducto.find_by(estado: 'inactivo')
+        @producto.save
+        #@producto.destroy
         redirect_to action: :listar
     end
 
@@ -81,7 +90,7 @@ class ProductosController < ApplicationController
     def params_producto
         params.require(:producto)
         .permit(:nombre, :precio, :descripcion, 
-            :cantidad, :categoria_id, imagenes: [])
+            :cantidad, :categoria_id, :estados_producto_id, imagenes: [])
     end
 
     def consultar_categorias
