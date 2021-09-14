@@ -11,7 +11,13 @@ module ApplicationHelper
         redirect_to root_path
     end
 
+    def validar_sesion_cliente
 
+    end
+
+    def validar_sesion_admin
+
+    end
 
     # def validar_sesion
     #     if session[:admin_id]

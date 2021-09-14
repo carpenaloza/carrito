@@ -1,6 +1,7 @@
 class PedidosController < ApplicationController
     include PedidosHelper
-    layout 'paginas', only: [:crear, :pagar]
+    layout 'paginas' 
+    # , only: [:crear, :pagar]
 
 
 

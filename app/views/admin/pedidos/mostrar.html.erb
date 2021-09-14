@@ -1,0 +1,59 @@
+<br>
+<div class="alert alert-primary" role="alert">
+    <%= @pedido.estados_pedido.estado %>
+</div>
+
+<div class="grid">
+  
+    <div class="card border-dark" style="max-width: 18rem">
+            <div class="card-header">
+                PEDIDO <%= @pedido.codigo %>
+            </div>
+            <div class="card-body text-dark">
+                <p class="card-text"> <%= @pedido.datos_envio.nombre %> </p>
+                <p class="card-text"> <%= @pedido.datos_envio.correo %> </p>
+                <p class="card-text"> <%= @pedido.datos_envio.telefono %> </p>
+                <p class="card-text"> <%= @pedido.destino.nombre %> </p>
+            </div>
+            <div class="card-footer bg-transparent border-success">
+            <%= link_to "Editar", admin_editar_pedido_path(@pedido), class: 'btn btn-success' %>
+            </div>
+            
+    </div>
+    <div class="card border-dark" style="max-width: auto">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @pedido.detalles_pedidos.each do |detalle| %>
+                <tr>
+                    <td>
+                        <%= image_tag detalle.producto.imagenes.first, class: 'img-thumbnail', width:100 %>
+                    </td>
+                    <td scope="row"><%= detalle.producto.nombre %></td>
+                    <td><%= detalle.producto.precio %></td>
+                    <td><small class="text-muted"><%= detalle.cantidad %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+        <div class="card-footer bg-transparent border-success">TOTAL <%= @pedido.total %></div></div>
+    </div>
+</div>
+
+  
+    
+
+
+    
+
+
+    
+
+

@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-6 contenedor-formulario">
 
-        <%= form_with(model: categoria) do |formulario| %>
+        <%= form_with(model: [:admin, categoria]) do |formulario| %>
             <div class="mb-3">
                 <%= formulario.label :categoria, 'Nombre', class: "form-label" %>
                 <%= formulario.text_field :categoria, autofocus: 'autofocus', class: "form-control" %>

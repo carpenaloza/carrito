@@ -1,4 +1,4 @@
-class DestinosController < ApplicationController
+class Admin::DestinosController < Admin::AdminController
     # before_action :validar_sesion
     before_action :asignar_destino, only: [:mostrar, :editar, :actualizar, :eliminar]
     # GET
@@ -46,7 +46,7 @@ class DestinosController < ApplicationController
     # DELETE
     def eliminar
         @destino.destroy
-        redirect_to destinos_path
+        redirect_to action :listar
     end
 
     private

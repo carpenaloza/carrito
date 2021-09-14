@@ -1,0 +1,20 @@
+<%= form_with(model: datos_pedido) do |formulario| %>
+    <%# <%= formulario.label :id %>
+    <%# <%= formulario.text_field :id %>
+
+    <%= formulario.label :nombre %>
+    <%= formulario.text_field :nombre %>
+
+    <%= formulario.label :correo %>
+    <%= formulario.text_field :correo %>
+
+    <%= formulario.label :telefono %>
+    <%= formulario.text_field :telefono %>
+
+    <%= formulario.label :direccion %>
+    <%= formulario.text_field :direccion %>
+
+    <%= formulario.label :destino_id %>
+    <%= formulario.text_field :destino_id %>
+
+<% end %>

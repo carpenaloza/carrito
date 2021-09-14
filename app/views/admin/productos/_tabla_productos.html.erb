@@ -16,7 +16,7 @@
                 <tr>
                     <td>
                         <% if producto.imagenes.attached? %>
-                            <%= link_to producto_path(producto) do %>
+                            <%= link_to admin_producto_path(producto) do %>
                             <%= image_tag producto.imagenes.first, class: 'img-thumbnail', width:100 %>
                         <% end %>
                         <% else %>
@@ -28,12 +28,12 @@
                     <td><%= producto.cantidad %></td>
                     <td><%= producto.categoria.categoria %></td>
                     <td>
-                        <%= link_to editar_producto_path(producto) do %>
+                        <%= link_to admin_editar_producto_path(producto) do %>
                         <i class="bi bi-pencil-fill"></i> Editar
                         <% end %> 
-                        <%= link_to producto_path(producto), method: :delete, data: { confirm: '¿Quieres eliminar el producto?' } do %>                   
-                                <i class="bi bi-trash-fill"></i> Eliminar                    
-                        <% end %>
+                        <%# <%= link_to admin_producto_path(producto), method: :delete, data: { confirm: '¿Quieres eliminar el producto?' } do %> 
+                                <%# <i class="bi bi-trash-fill"></i> Eliminar                     %>
+                        <%# <% end %>
                     </td>
                 </tr>
             </tbody>
