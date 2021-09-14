@@ -9,11 +9,17 @@ module Admin::PedidosHelper
         attr_accessor :direccion
         attr_accessor :telefono
         attr_accessor :destino_id
+        attr_accessor :estado_id
 
         validates(:nombre, presence: true)
         validates(:direccion, presence: true)
         validates(:correo, presence: true)
         validates(:telefono, presence: true)
         validates(:destino_id, presence: true)
+        validates(:estado_id, presence: true)
+
+        def persisted?
+            id != nil
+        end
     end
 end

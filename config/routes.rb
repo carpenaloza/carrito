@@ -76,9 +76,9 @@ Rails.application.routes.draw do
     get 'pedidos/:id',          to: 'pedidos#mostrar',  as: 'pedido'
     get 'pedidos/:id/editar',   to: 'pedidos#editar',   as: 'editar_pedido'
 
-    post 'pedidos',       to: 'pedidos#guardar'
-    put 'pedidos/:id',    to: 'pedidos#actualizar', as: 'pedidos_helper_pedidos_formularios'
-    patch 'pedidos/:id',  to: 'pedidos#actualizar'
+    post 'pedidos',       to: 'pedidos#guardar', as: 'pedidos_helper_pedidos_formularios'
+    put 'pedidos/:id',    to: 'pedidos#actualizar'
+    patch 'pedidos/:id',  to: 'pedidos#actualizar', as: 'pedidos_helper_pedidos_formulario'
     delete 'pedidos/:id', to: 'pedidos#eliminar'
     
   end
