@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   # get 'home',             to: 'home#index',  as: 'index'
   
   
-
-
   #Paginas
   root 'paginas#inicio'
 
@@ -72,14 +70,20 @@ Rails.application.routes.draw do
     
     # pedidos
     get 'pedidos',              to: 'pedidos#listar',   as: 'pedidos'
-    get 'pedidos/crear',        to: 'pedidos#crear',    as: 'nuevo_pedido'
+    #get 'pedidos/crear',        to: 'pedidos#crear',    as: 'nuevo_pedido'
     get 'pedidos/:id',          to: 'pedidos#mostrar',  as: 'pedido'
     get 'pedidos/:id/editar',   to: 'pedidos#editar',   as: 'editar_pedido'
 
-    post 'pedidos',       to: 'pedidos#guardar', as: 'pedidos_helper_pedidos_formularios'
-    put 'pedidos/:id',    to: 'pedidos#actualizar'
-    patch 'pedidos/:id',  to: 'pedidos#actualizar', as: 'pedidos_helper_pedidos_formulario'
-    delete 'pedidos/:id', to: 'pedidos#eliminar'
+    post    'pedidos',        to: 'pedidos#crear',       as: 'pedidos_helper_pedidos_formularios'
+    put     'pedidos/:id',    to: 'pedidos#actualizar'
+    patch   'pedidos/:id',    to: 'pedidos#actualizar',  as: 'pedidos_helper_pedidos_formulario'
+    delete  'pedidos/:id',    to: 'pedidos#eliminar'
+
+    get     'pedidos/:id/productos',                        to: 'pedidos#agregar_producto',             as: 'agregar_producto_pedido'
+    post    'pedidos/:id/productos/:id_producto',           to: 'pedidos#guardar_producto',             as: 'guardar_producto_pedido'
+    put     'pedidos/:id/productos/:id_producto',           to: 'pedidos#aumentar_cantidad_producto',   as: 'aumentar_producto_pedido'
+    delete  'pedidos/:id/productos/:id_producto',           to: 'pedidos#disminuir_cantidad_producto',  as: 'disminuir_producto_pedido'
+    delete  'pedidos/:id/productos/:id_producto/eliminar',  to: 'pedidos#eliminar_producto',            as: 'eliminar_producto_pedido'
     
   end
 

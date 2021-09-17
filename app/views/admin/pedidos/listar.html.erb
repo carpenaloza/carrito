@@ -1,26 +1,42 @@
+<br>
+<div class="row">
+    <div class="col">
+        <h2>Pedidos</h2>
+    </div>
+    <div class="col text-end">
+        <%= link_to admin_pedidos_helper_pedidos_formularios_path, 
+                    class: "btn btn-primary text-white", 
+                    method: :post,
+                    data: { confirm: '¿Quieres crear un nuevo pedido?' }  do %>
+            <i class="bi bi-plus-circle"></i>
+            Crear pedido
+        <% end %>
+    </div>
+</div>
+
 <% if flash[:errors] %>
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning mt-3" role="alert">
         <%= flash[:errors] %>
     </div>
 <% end %>
 
-<div class="row">
-    <div class="col">Código</div>
-    <div class="col">Fecha</div>
-    <div class="col">Total</div>
-    <div class="col">Detalles</div>
-    
+<div class="row mb-4 mt-4">
+    <div class="col text-muted">Código</div>
+    <div class="col text-muted">Estado</div>
+    <div class="col text-muted">Total</div>
+    <div class="col text-muted">Fecha</div>
+    <div class="col text-muted"></div>
 </div>
 <% @pedidos.each do |pedido| %>
-    <div class="row">
-        <div class="col"> <%= pedido.codigo %> </div>
-        <div class="col"> <%= pedido.created_at.strftime("%d/%m/%Y") %> </div>
+    <div class="row fila">
+        <div class="col"> <strong> <%= pedido.codigo %> </strong> </div>
+        <div class="col"> <%= pedido.estados_pedido.estado %> </div>
         <div class="col"> <%= pedido.total %> </div>
-        <div class="col"> 
-            <%= link_to "Ver detalles", 
-                admin_pedido_path(pedido), 
-                class: 'btn btn-primary' %>
+        <div class="col"> <%= pedido.created_at.strftime("%d/%m/%Y") %> </div>
+        <div class="col text-end"> 
+            <%= link_to admin_pedido_path(pedido), class: 'btn btn-secondary text-white' do%>
+                <i class="bi bi-search"></i>
+            <% end %>
         </div>
-        
-    </div>
+    </div> <br>
 <% end %>

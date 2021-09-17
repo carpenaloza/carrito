@@ -1,11 +1,11 @@
 <br>
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-warning" role="alert">
     <%= @pedido.estados_pedido.estado %>
 </div>
 
 <div class="row">
   <div class="col-3">
-    <div class="card border-dark">
+    <div class="card border-greys">
             <div class="card-header">
                 PEDIDO <%= @pedido.codigo %>
             </div>
@@ -15,14 +15,14 @@
                 <p class="card-text"> <%= @pedido.datos_envio.telefono %> </p>
                 <p class="card-text"> <%= @pedido.destino.nombre %> </p>
             </div>
-            <div class="card-footer bg-transparent border-success">
+            <div class="card-footer bg-transparent border-light">
             <%= link_to "Editar", admin_editar_pedido_path(@pedido), class: 'btn btn-success' %>
             </div>
             
         </div>
     </div>
     <div class="col-9">
-    <div class="card border-dark" style="max-width: auto">
+    <div class="card border-greys" style="max-width: auto">
         <table class="table">
             <thead>
                 <tr>
@@ -45,12 +45,13 @@
             </tbody>
             <% end %>
         </table>
-        <div class="card-footer bg-transparent border-success">TOTAL <%= @pedido.total %></div></div>
+        <div class="card-footer bg-transparent border-greys">TOTAL <%= @pedido.total %></div></div>
     </div>
     </div>
 </div>
 
-  
+
+
     
 
 

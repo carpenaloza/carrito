@@ -1,16 +1,40 @@
+<br>
 
-<div class="row">
-    <div class="col-10">
-        <h1> EDITAR PEDIDO <%= @pedido.codigo %> </h1>
+<div class="card border-greys">
+    <div class="card-header">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <h4 class="card-title">
+                        EDITAR PEDIDO <%= @pedido.codigo %>
+                    </h4>
+                </div>
+                <div class="col-4 text-end">
+                    <%= link_to "Volver", admin_pedido_path(@pedido), class: 'btn btn-secondary' %>
+                </div>
+            </div>
     </div>
-    <div class="col-2 text-end">
-    <%= link_to "Volver", admin_pedido_path(@pedido), class: 'btn btn-secondary' %>
-    
+    <div class="card-footer bg-white ">
+    <div class="card-body text-center">
+                <h6>
+                    <strong>
+                        TOTAL:
+                    </strong>
+                </h6>
+                <p>
+                    <%= @pedido.total %>
+                </p>
+            </div>
     </div>
-
-
 </div>
 
 
-<%= render 'formulario_datos_envio', 
-    datos_pedido: @datos_pedido, destinos: @destinos, estados: @estados %>
+<div class="row">
+    <div class="col-lg-4">
+        <%= render 'formulario_datos_envio', datos_pedido: @datos_pedido, destinos: @destinos, estados: @estados  %>
+    </div>
+    <div class="col-lg-8">
+        <%= render 'listar_productos', productos: @productos, pedido: @pedido %>
+    </div>
+</div>
+
+<br>

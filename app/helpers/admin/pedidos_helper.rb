@@ -16,7 +16,7 @@ module Admin::PedidosHelper
         validates(:correo, presence: true)
         validates(:telefono, presence: true)
         validates(:destino_id, presence: true)
-        validates(:estado_id, presence: true)
+        # validates(:estado_id, presence: true)
 
         def persisted?
             id != nil
