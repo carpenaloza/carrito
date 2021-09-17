@@ -30,14 +30,17 @@ include Admin::PedidosHelper
         @destinos = Destino.select(:id, :nombre).order(nombre: :asc)
         @productos = @pedido.detalles_pedidos # lista de productos
     end
-    
+
     # POST
     def crear
         @pedido = Pedido.new
+        # @datos_pedido = PedidosFormulario.new
+        # @estados = EstadosPedido.select(:id, :estado).order(estado: :asc)
+        # @destinos = Destino.select(:id, :nombre).order(nombre: :asc)
         @pedido.codigo          = SecureRandom.hex(4).upcase
         @pedido.total           = 0
         @pedido.estados_pedido  = EstadosPedido.find_by(estado: 'solicitado')
-        @pedido.destino         = Destino.find_by(nombre: "Sin destino")
+        @pedido.destino         = Destino.find_by(nombre: "El Quisco")
         @pedido.datos_envio     = DatosEnvio.create(
                                         nombre:     'ingrese nombre',
                                         telefono:   'ingrese teléfono',
@@ -48,6 +51,20 @@ include Admin::PedidosHelper
         
         redirect_to admin_editar_pedido_path(@pedido)
     end
+
+    # POST
+    def guardar 
+        @datos_pedido = PedidosFormulario.new(params_pedidos)
+        @pedido = Pedido.new
+        if @datos_pedido.valid?
+
+        else
+            @estados = EstadosPedido.select(:id, :estado).order(estado: :asc)
+        @destinos = Destino.select(:id, :nombre).order(nombre: :asc)
+        render :crear
+        end
+    end
+
 
     # POST
     def guardar_producto

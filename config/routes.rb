@@ -69,7 +69,7 @@ Rails.application.routes.draw do
     delete  'productos/:id/imagenes/:id_imagen',  to: 'productos#eliminar_foto',  as: 'eliminar_foto'
     
     # pedidos
-    get 'pedidos',              to: 'pedidos#listar',   as: 'pedidos'
+    get '/',              to: 'pedidos#listar',   as: 'pedidos'
     #get 'pedidos/crear',        to: 'pedidos#crear',    as: 'nuevo_pedido'
     get 'pedidos/:id',          to: 'pedidos#mostrar',  as: 'pedido'
     get 'pedidos/:id/editar',   to: 'pedidos#editar',   as: 'editar_pedido'

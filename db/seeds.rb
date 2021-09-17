@@ -5,23 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+EstadosProducto.create([
+    { estado: 'activo'},
+    { estado: 'inactivo'}
+])
 
 TiposPago.create([
     {pago: 'efectivo'},
     {pago: 'tarjeta'},
 ])
 
-
-
 EstadosPedido.create([
     {estado: 'solicitado'},
     {estado: 'enviado'},
     {estado: 'entregado'},
+    {estado: 'cancelado'},
 ])
 
-
 # Region.destroy_all
-
 
 Region.create([
     { nombre: 'Primera Región Tarapacá'},
@@ -40,7 +41,12 @@ Region.create([
     { nombre: 'Décima Cuarta Región Los Ríos'},
     { nombre: 'Décima Quinta Región Arica y Parinacota'},
     { nombre: 'Décima Sexta Región Ñuble'},
+    { nombre: 'Sin Region'},
 ])
+
+Destino.first_or_create(
+    { nombre: 'Sin destino', region: Region.find_by(nombre: 'Sin región') }
+)
 
 
 # Categoria.create([
@@ -49,9 +55,3 @@ Region.create([
 #     {categoria: 'Pulseras'},
 #     {categoria: 'Collares'},
 # ])
-
-
-EstadosProducto.create([
-    { estado: 'activo'},
-    { estado: 'inactivo'}
-])
