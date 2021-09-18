@@ -1,20 +1,27 @@
 <br>
-<div class="row">
-    <div class="col">
-        <h2>Pedidos</h2>
-    </div>
-    <div class="col text-end">
-        <%= link_to admin_pedidos_helper_pedidos_formularios_path, 
+
+<div class="card border-greys">
+    <div class="card-header">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <h4 class="card-title">
+                        PEDIDOS
+                    </h4>
+                </div>
+                <div class="col-4 text-end">
+                    <%= link_to admin_pedidos_helper_pedidos_formularios_path, 
                     class: "btn btn-primary text-white", 
                     method: :post,
                     data: { confirm: '¿Quieres crear un nuevo pedido?' }  do %>
-            <i class="bi bi-plus-circle"></i>
-            Crear pedido
-        <% end %>
+                    <i class="bi bi-plus-circle"></i>
+                    Crear pedido
+                    <% end %>
+                </div>
+            </div>
     </div>
-</div>
-
-<% if flash[:errors] %>
+    <div class="card-footer bg-white ">
+    <div class="card-body text-center">
+                <% if flash[:errors] %>
     <div class="alert alert-warning mt-3" role="alert">
         <%= flash[:errors] %>
     </div>
@@ -40,3 +47,6 @@
         </div>
     </div> <br>
 <% end %>
+            </div>
+    </div>
+</div>
