@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
   get '/carrito', to: 'paginas#carro', as: 'carrito'
   get 'enviar', to: 'paginas#enviar_saludo'
+
   
+  #sesiones
+  post    '/sesiones',  to: 'sesiones#iniciar_sesion', as: 'iniciar_sesion'
+  delete  '/sesiones',  to: 'sesiones#cerrar_sesion',  as: 'cerrar_sesion'
+
   #carros
   post   'carros/:id_producto',          to: 'carros#agregar_producto',            as: 'agregar_producto'
   put 'carros/:id_producto/cantidad',   to: 'carros#aumentar_cantidad_producto',  as: 'aumentar_producto'

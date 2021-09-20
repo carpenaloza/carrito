@@ -33,5 +33,15 @@
         </li>
       </ul>
     </div>
-        
+    <div class="nav-item dropdown">
+
+          <% if usuario_ha_iniciado_sesion? %>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdawn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= @usuario_actual.nombre %>
+            </a>
+            <div class="dropdown-menu">
+              <%= link_to 'Cerrar sesión', cerrar_sesion_path, class: 'btn btn-warning', method: :delete, data: { confirm: 'está seguro de cerrar sesión?'} %>
+            </div>
+            <% end %>
+    </div>
 </nav>

@@ -44,9 +44,9 @@ Region.create([
     { nombre: 'Sin Region'},
 ])
 
-Destino.first_or_create(
-    { nombre: 'Sin destino', region: Region.find_by(nombre: 'Sin región') }
-)
+# Destino.create(
+#     { nombre: 'Sin destino', region: Region.find_by(nombre: 'Sin Region') }
+# )
 
 
 # Categoria.create([
@@ -55,3 +55,8 @@ Destino.first_or_create(
 #     {categoria: 'Pulseras'},
 #     {categoria: 'Collares'},
 # ])
+
+Administrador.create(
+    {nombre: 'carolina', correo: 'car.penaloza@hotmail.es', password: Rails.application.credentials.admin[:password_admin1] },
+    {nombre: 'admin', correo: 'shikit.tyd@gmail.com', password: Rails.application.credentials.admin[:password_admin2]}
+)

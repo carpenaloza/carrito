@@ -15,6 +15,12 @@
   <body>
     <%= render 'layouts/navbar_cliente' %>
 
+        <% if flash[:error_sesion] %>
+            <div class="alert alert-danger" role="alert">
+                <%= flash[:error_sesion] %>
+            </div>
+        <% end %>
+
     <div class="container contenedor">
     
     <%= yield %>
